@@ -12,10 +12,10 @@ Fully functional blog, with posts kept in database. Ability to add and remove po
 
 ## Plan:
 
-- [x] ~~Create a basic Node.js server which will host the whole application.~~ _Done on 21.07.2020_
-- [x] ~~Start writing about stuff you learned / did to get in habit and practice writing.~~ _Created my first blog post on 21.07.2020!_
+- [x] ~~Create a basic Node.js server which will host the whole application.~~ **(Done on 21.07.2020**
+- [x] ~~Start writing about stuff you learned / did to get in habit and practice writing.~~ **Created my first blog post on 21.07.2020!**
 - [ ] Set up routes for pages.
-- [x] Create a template with template engine (Pug?). _Working on_
+- [x] Create a template with template engine (Pug?). **_Working on_**
   - ~~Create basic template~~
   - Create route that will work for dynamic posts
   - Maybe add some styling
