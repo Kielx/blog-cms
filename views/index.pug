@@ -1,11 +1,14 @@
 html
   head
     title Kielx blog
-  
+- var param = params.postname
   body
     h1 Welcome to Kielx's blog!
-    console.log(posts)
-    h2= posts.one.title
-    p= posts.one.content
+    p= posts[param]['content']
     br
-    p By #{posts.one.author}, posted on #{posts.one.added}
+    p By #{posts.first_post.author}, posted on #{posts.first_post.added}
+    ul
+      each post in posts
+        li <a href=#{post.titleslug}> #{post.title}
+    
+    p= param

@@ -19,6 +19,7 @@ Fully functional blog, with posts kept in database. Ability to add and remove po
   - ~~Create basic template~~
   - Create route that will work for dynamic posts
   - Maybe add some styling
+  - ~~Decide how to deal with names and links to posts~~ **22.07.2020**
 - [ ] Make it possible to add / delete posts.
 - [ ] Find a place and a way to deploy your blog somewhere.
 - [ ] More...

@@ -1,10 +1,23 @@
 {
-  "one": {
-    "number": 1,
+  "first_post": {
+    "id": 1,
     "title": "First post",
     "author": "Kielx",
     "added": "21-07-2020",
     "content": "This is my first post. \n I created this blog to help myself write about the stuff I learned. Today I decided that I will create a blog to keep myself accountable for the process of learning programming. I decided to learn programming because I'm tired of my current job. I had and objective to learn programming for past few years and actually tried to do it, but unfortunatley I either did quit for a few times or couldnt get out of tutorial purgatory. Therefore after many failed attempts I decided to finally overcome all the obstacles and after 4 years from now or less become a programmer. Why 4 years and not 10 years? Or maybe better 4 months? Because I also decided to start studying for my CS degree. Why now? Because there's no better time to start than today. I'm 29 and had spent last 8 years of my life working as a police officer. It was my first job, and the only one I ever had. The job and career that I hate and despise myself for not having enough courage to abandon an try to do something better with my life. Therefore I decided to start working on CS degree and commit to work for at least an hour a day on programming. This blog is supposed to help me get started and force me to work so I wont abandon this great idea again. It will allow me to practice many skills - coding while building the whole app, create first meaningful project, work on my writing and english skills, help myself organize during the progress and many more. I just hope that I won't stop after few days/weeks...",
+    "comments": {
+      "author": "",
+      "added": "",
+      "content": ""
+    }
+  },
+
+  "second_post": {
+    "id": 2,
+    "title": "Second post",
+    "author": "Kielx",
+    "added": "22-07-2020",
+    "content": "This is my second post. I plan to update it as soon as I get some more time.",
     "comments": {
       "author": "",
       "added": "",
