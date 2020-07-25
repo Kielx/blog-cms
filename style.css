@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+body {
+  background-color: beige;
+  font-family: "Work Sans", sans-serif;
+}
+
+p {
+  font-weight: 300;
+}
+.container {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 20% 1fr;
+}

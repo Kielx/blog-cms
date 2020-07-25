@@ -17,6 +17,7 @@ Fully functional blog, with posts kept in database. Ability to add and remove po
 - [ ] Set up routes for pages.
 - [x] Create a template with template engine (Pug?). **(_Working on_)**
   - ~~Create basic template~~
+  - Create a layout to inherit
   - Create route that will work for dynamic posts
   - Maybe add some styling
   - ~~Decide how to deal with names and links to posts~~ **22.07.2020**
