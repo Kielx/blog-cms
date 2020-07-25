@@ -26,3 +26,6 @@ Since I got earlier I had a chance to spend 25 minutes of work on project before
 Spent 0,5 h on work. Days elapsed 4. Total work time 3,5h.
 
 ## 25-07-2020
+
+Finally got some more time to work. Bad thing is that my wife is getting silently mad at me for spending too much time in front of computer. I hope that she will understand it someday. What i learned today: Finally got a little better with pug templates. I spent a lot of time trying to figure out how this templating engine is working, maybe im spending too much time at simple things because of this syntax. Gave this blog a little styling, but I have to admit that I'm really bad at styling. I don't know if its about CSS or just me having no taste. I feel really tired after spending like two hours on styling index page and it still looks like crap. Still got a nice refresher on CSS and the way it works with pug.
+Spent 2h on work. Days elapsed 5. Total work time 5,5h.

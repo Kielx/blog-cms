@@ -9,9 +9,7 @@ block content
       h1 Welcome to Kielx's blog!
       p= posts[param]['content']
       br
-      p <b>By #{posts.first_post.author}, posted on #{posts.first_post.added}</b>
+      p <b>By #{posts.first_post.author}, posted on #{posts[param]['added']}</b>
       ul
         each post in posts
           li <a href=#{post.titleslug}> #{post.title}
-      
-      p= param
