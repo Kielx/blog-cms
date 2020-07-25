@@ -3,13 +3,19 @@ block head
   style
     include ../style.css
 
-block content
   - var param = params.postname || 'first_post'
-    div.container
+block content
+  .container
+    .header
       h1 Welcome to Kielx's blog!
+    .postlist
+      h2 My posts:
+      ul
+        each post in posts
+          li
+            a(href=`${post.titleslug}`) #{post.title}
+    
+    .page
       p= posts[param]['content']
       br
       p <b>By #{posts.first_post.author}, posted on #{posts[param]['added']}</b>
-      ul
-        each post in posts
-          li <a href=#{post.titleslug}> #{post.title}
