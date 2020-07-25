@@ -2,16 +2,18 @@ extends layout.pug
 block head
   style
     include ../style.css
+    include ../style-index.css
 
 block content
-  - var param = params.postname || 'first_post'
-    div.container
+  .container
+    .header
       h1 Welcome to Kielx's blog!
-      p= posts[param]['content']
-      br
-      p By #{posts.first_post.author}, posted on #{posts.first_post.added}
+    .postlist
+      h2 My posts:
       ul
         each post in posts
-          li <a href=#{post.titleslug}> #{post.title}
-      
-      p= param
+          li
+            a(href=`${post.titleslug}`) #{post.title}
+    
+    .page
+      p "This is my first post. I created this blog to help myself write about the stuff I learned. Today I decided that I will create a blog to keep myself accountable for the process of learning programming. I decided to learn programming because I'm tired of my current job. I had and objective to learn programming for past few years and actually tried to do it, but unfortunatley I either did quit for a few times or couldnt get out of tutorial purgatory. Therefore after many failed attempts I decided to finally overcome all the obstacles and after 4 years from now or less become a programmer. Why 4 years and not 10 years? Or maybe better 4 months? Because I also decided to start studying for my CS degree. Why now? Because there's no better time to start than today. Therefore I decided to start working on CS degree and commit to work for at least an hour a day on programming. This blog is supposed to help me get started and force me to work so I wont abandon this great idea again. It will allow me to practice many skills - coding while building the whole app, create first meaningful project, work on my writing and english skills, help myself organize during the progress and many more. I just hope that I won't stop after few days/weeks..."

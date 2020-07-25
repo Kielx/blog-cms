@@ -1,0 +1,17 @@
+extends layout.pug
+block head
+  style
+    include ../style.css
+
+block content
+  - var param = params.postname || 'first_post'
+    div.container
+      h1 Welcome to Kielx's blog!
+      p= posts[param]['content']
+      br
+      p <b>By #{posts.first_post.author}, posted on #{posts.first_post.added}</b>
+      ul
+        each post in posts
+          li <a href=#{post.titleslug}> #{post.title}
+      
+      p= param
