@@ -22,8 +22,10 @@ Fully functional blog, with posts kept in database. Ability to add and remove po
   - ~~Maybe add some styling~~
   - ~~Decide how to deal with names and links to posts~~ 
 - [x] ~~Move posts to database **(Done 27.07.2020)**~~
-- [:heavy_multiplication_x:] Make it possible to add / delete posts. **(Working on 27.07.2020)**
-  - Create a form to add posts
+- [:heavy_multiplication_x:] Make it possible to ~~add~~ / delete posts. **(Working on 27.07.2020)**
+  - ~~Create a form to add posts~~
+  - Create a way to delete posts
+  - Create a way to update posts
 - [ ] Add authentication
 - [ ] Find a place and a way to deploy your blog somewhere.
 - [ ] More...
