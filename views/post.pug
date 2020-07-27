@@ -3,7 +3,7 @@ block head
   style
     include ../style.css
 
-  - var param = params.postname || 'first_post'
+  - var param = params.postname
 block content
   .container
     .header
@@ -16,6 +16,8 @@ block content
             a(href=`${post.titleslug}`) #{post.title}
     
     .page
-      p= posts[param]['content']
-      br
-      p <b>By #{posts.first_post.author}, posted on #{posts[param]['added']}</b>
+      each post in posts
+        =console.log(post['titleslug'])
+        =console.log(param)
+        if post['titleslug'] == param
+          p= post['content']
