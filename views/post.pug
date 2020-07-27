@@ -13,11 +13,9 @@ block content
       ul
         each post in posts
           li
-            a(href=`${post.titleslug}`) #{post.title}
+            a(href=`${post.newSlug}`) #{post.title}
     
     .page
       each post in posts
-        =console.log(post['titleslug'])
-        =console.log(param)
-        if post['titleslug'] == param
+        if post['newSlug'] == param
           p= post['content']
