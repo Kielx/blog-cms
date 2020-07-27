@@ -15,14 +15,16 @@ Fully functional blog, with posts kept in database. Ability to add and remove po
 - [x] ~~Create a basic Node.js server which will host the whole application.~~ **(Done on 21.07.2020)**
 - [x] ~~Start writing about stuff you learned / did to get in habit and practice writing.~~ **(Created my first blog post on 21.07.2020!)**
 - [x] ~~Set up routes for pages.~~ **(Done on 24.07.2020 - seems like I dont really need routes)**
-- [ ] Create a template with template engine (Pug?). 
+- [x] ~~Create a template with template engine (Pug).~~ **(Finished on 27.07.2020)
   - ~~Create basic template~~
   - ~~Create a layout to inherit~~
   - ~~Create route that will work for dynamic posts~~
-  - Maybe add some styling
-  - ~~Decide how to deal with names and links to posts~~ **22.07.2020**
-- [x] Move posts to database **(Working on)**
-- [ ] Make it possible to add / delete posts.
+  - ~~Maybe add some styling~~
+  - ~~Decide how to deal with names and links to posts~~ 
+- [x] ~~Move posts to database **(Done 27.07.2020)**~~
+- [:heavy_multiplication_x:] Make it possible to add / delete posts. **(Working on 27.07.2020)**
+  - Create a form to add posts
+- [ ] Add authentication
 - [ ] Find a place and a way to deploy your blog somewhere.
 - [ ] More...
 
