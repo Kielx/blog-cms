@@ -1,20 +1,9 @@
 extends layout.pug
-block head
-  style
-    include ../style.css
 
-  - var param = params.postname
+
+
 block content
-  .container
-    .header
-      h1 Welcome to Kielx's blog!
-    .postlist
-      h2 My posts:
-      ul
-        each post in posts
-          li
-            a(href=`${post.newSlug}`) #{post.title}
-    
+    - var param = params.postname
     .page
       each post in posts
         if post['newSlug'] == param
