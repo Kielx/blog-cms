@@ -7,4 +7,7 @@ block content
     .page
       each post in posts
         if post['newSlug'] == param
+          h2= post.title
           p= post['content']
+          hr
+          h4= `Added by ${post.author} on ${post.added.toDateString()}`
