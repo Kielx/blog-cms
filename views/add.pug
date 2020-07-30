@@ -3,7 +3,7 @@ extends layout.pug
 block content
   .page
     h2 Create new post form!
-    form#addPost(action='/add/addpost', method='post', name='addPost')
+    form#addPost(action='/posts/add', method='post', name='addPost')
       label(for='addPostTitle') Enter post title: 
       br
       input#addPostTitle(type='text', name='title', value='New post title')
