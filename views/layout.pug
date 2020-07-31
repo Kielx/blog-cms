@@ -1,8 +1,21 @@
 doctype html
 html
   head
+
+    style
+      include ../style.css
     block head
     title Kielx's blog
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;900&display=swap" rel="stylesheet"> 
   body
-    block content
+
+    .container
+      .header
+        h1 Welcome to Kielx's blog!
+      .postlist
+        h2 My posts:
+        ul
+          each post in posts
+            li
+              a(href=`${post.newSlug}`) #{post.title}
+      block content
