@@ -53,3 +53,7 @@ p {
     grid-column: 1 / 3;
   }
 }
+
+.formfield {
+  width: 100%;
+}
