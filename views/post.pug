@@ -8,8 +8,10 @@ block content
       each post in posts
         if post['newSlug'] == param
           h2= post.title
+          br
           p= post['content']
           hr
+          br
           h5= `Added by ${post.author} on ${post.added.toGMTString()}`
 
           

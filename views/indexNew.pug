@@ -1,0 +1,18 @@
+extends layoutNew.pug
+
+block content
+  if posts.length
+    h2 This is what we found:
+    br
+    ul.kielx-list
+      each post in posts
+        li
+          h3
+            a(href=`../${post.newSlug}`) #{post.title} 
+          p= `${post.content.split(' ').slice(0,25).join(' ')}...`
+  else
+    br
+    h2 Sorry, We couldn't find the post that You were looking for!
+  br
+  a(href='/', style={display: 'inline-block', width:'100%', 'text-align': 'center'}) Go back to home page
+  hr  

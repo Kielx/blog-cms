@@ -57,3 +57,8 @@ p {
 .formfield {
   width: 100%;
 }
+
+.kielx-list {
+  width: 50%;
+  margin: auto;
+}
