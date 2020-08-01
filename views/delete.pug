@@ -5,7 +5,7 @@ block content
     h2 Delete post!
     form#deletePost(action='/posts/delete', method='post', name='deletePost')
       each post in posts
-        label(for=post.newSlug) #{post.title}:
+        label(for=post.newSlug) #{post.title}: 
         input(type='radio', name='title', value=post.title, id=post.newSlug)
         br
-      input(type='submit', value=`Delete post!`)
+      button.btn.btn-primary(type='submit') Delete post
