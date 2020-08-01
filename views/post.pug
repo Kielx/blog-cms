@@ -13,5 +13,9 @@ block content
           hr
           br
           h5= `Added by ${post.author} on ${post.added.toGMTString()}`
+          br
+          form#deletePost(action='/posts/delete', method='post', name='deletePost')
+            button.btn.btn-danger(type='submit', name='title', value=post.title) Delete post
+
 
           
