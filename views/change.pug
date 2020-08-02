@@ -1,0 +1,19 @@
+extends layoutNew.pug
+
+block content
+  =console.log(post[0].id)
+  form#changePost(action='/posts/change/', method='post', name='changePost', abc='test')
+    label(for='changePostTitle') Enter post title: 
+    br
+    input#changePostTitle.formfield(type='text', name='title', value=post[0].title)
+    br
+    label(for='content') Enter post content: 
+    br
+    textarea.formfield(type='textarea', name="content", cols="30", rows="10" form='changePost') #{post[0].content}
+    script.
+      var easyMDE = new EasyMDE({
+        showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule']
+      });
+    br
+    button.btn.btn-warning(type='submit', name='id', value=post[0].id) Change post
+          
