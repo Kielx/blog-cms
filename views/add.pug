@@ -1,7 +1,10 @@
 extends layout.pug
 
 block content
+
+  
   .page
+  
     h2 Create new post form!
     form#addPost(action='/posts/add', method='post', name='addPost')
       label(for='addPostTitle') Enter post title: 
@@ -11,5 +14,9 @@ block content
       label(for='content') Enter post content: 
       br
       textarea.formfield(type='textarea', name="content", cols="30", rows="10" form='addPost') New post content
+      script.
+        var easyMDE = new EasyMDE({
+          showIcons: ['strikethrough', 'code', 'table', 'redo', 'heading', 'undo', 'heading-bigger', 'heading-smaller', 'heading-1', 'heading-2', 'heading-3', 'clean-block', 'horizontal-rule']
+        });
       br
       button.btn.btn-primary(type='submit') Create new post
