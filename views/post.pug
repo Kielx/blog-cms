@@ -16,6 +16,9 @@ block content
           br
           form#deletePost(action='/posts/delete', method='post', name='deletePost')
             button.btn.btn-danger(type='submit', name='title', value=post.title) Delete post
+          br
+          form#editPost(action='/posts/change/', method='get', name='changePost')
+            button.btn.btn-warning(type='submit', name='post', value=post.title) Edit post          
 
 
           
