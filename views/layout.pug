@@ -21,6 +21,6 @@ html
         ul
           each post in posts
             li
-              a(href=`${post.newSlug}`) #{post.title}
+              a(href=`${'/posts/' + post.newSlug}`) #{post.title}
       block content
     include comps/scripts.pug
