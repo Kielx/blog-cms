@@ -5,6 +5,10 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
 
+//favicon
+const favicon = require("serve-favicon");
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+
 //set morgan logging
 const morgan = require("morgan");
 app.use(morgan("dev"));
