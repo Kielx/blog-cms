@@ -16,10 +16,10 @@ html
       h1 Welcome to Kielx's blog!
     .container-kielx
       .postlist
-        h2 My posts:
+        h2 My latest posts:
         br
         ul
-          each post in posts
+          each post in posts.sort((a,b) => a.added - b.added).slice(-10).reverse()
             li
               a(href=`${'/posts/' + post.newSlug}`) #{post.title}
       block content
