@@ -1,9 +1,20 @@
 require("dotenv").config({ path: "./mongo.env" });
 const express = require("express");
 const path = require("path");
-
 const app = express();
 const port = process.env.PORT || 3000;
+
+const session = require("express-session");
+const flash = require("connect-flash");
+
+app.use(
+  session({
+    secret: "happy dog",
+    saveUninitialized: true,
+    resave: true,
+  })
+);
+app.use(flash());
 
 //favicon
 const favicon = require("serve-favicon");

@@ -3,7 +3,10 @@ const express = require("express");
 router = express.Router();
 
 const postsController = require("../controllers/postsController");
+const usersController = require("../controllers/usersController");
 
+router.get("/users/register", usersController.displayRegister);
+router.post("/users/register", usersController.register);
 router.post("/posts/change/", postsController.updatePost);
 router.get("/posts/change/", postsController.updatePostRoute);
 router.get("/posts/search/", postsController.searchPostRoute);
