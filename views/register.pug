@@ -1,27 +1,69 @@
-extends layoutNew.pug
-
-block content
-  if ErrorMessages.length > 0
-    each message in ErrorMessages
-      div(class="alert alert-danger" role="alert" style="margin: 1.5vh 30vw; text-align: center")
-        h6= `${message}`
-  form(style="margin: 50px 30vw", action="/users/register", method='post', name='addPost')
-      label(for='Username') Enter Username: 
-      br
-      if username.length > 0
-        input#Username.formfield(type='text', name='Username', value=username[0])
-      else
-        input#Username.formfield(type='text', name='Username', placeholder=`Enter your Username`)
-      br
-      label(for='Password') Enter Password: 
-      br
-      input#Password.formfield(type='password', name='Password', placeholder='Enter your password')
-      label(for='Email') Enter E-mail adress: 
-      br
-      if email.length > 0
-        input#Email.formfield(type='text', name='email', value=email[0])
-      else
-        input#Email.formfield(type='text', name='email', placeholder='Enter your E-mail adress')
-      br
-      br
-      button.btn.btn-primary(type='submit') Create new post
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Kielx blog user registration
+    style
+      include ./css/styles.css
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js', crossorigin='anonymous')
+  body.bg-primary
+    #layoutAuthentication
+      #layoutAuthentication_content
+        main
+          .container
+            .row.justify-content-center
+              .col-lg-7
+                .card.shadow-lg.border-0.rounded-lg.mt-5
+                  .card-header
+                    h3.text-center.font-weight-light.my-4 Create Account
+                  .card-body
+                    if passwords.length > 0
+                      div(class="alert alert-warning" role="alert" style="text-align: center")
+                        h6= `${passwords}`                      
+                    if ErrorMessages.length > 0
+                      each message in ErrorMessages
+                        div(class="alert alert-danger" role="alert" style="text-align: center")
+                          h6= `${message}`
+                    form(action="/users/register", method='post', name='addUser')
+                      .form-row
+                        .col-md-12
+                          .form-group
+                            label.small.mb-1(for='Username') Username
+                            if username.length > 0
+                              input#inputUsername.form-control.py-4(name="username", type='text', placeholder='Enter User name', value=username[0], required="")
+                            else
+                              input#inputUsername.form-control.py-4(name="username", type='text', placeholder='Enter User name', required="")
+                      .form-group
+                        label.small.mb-1(for='Email') Email
+                        if email.length > 0
+                          input#inputEmailAddress.form-control.py-4(name="email", type='email', aria-describedby='emailHelp', value=email[0], required="")
+                        else
+                          input#inputEmailAddress.form-control.py-4(name="email", type='email', aria-describedby='emailHelp', placeholder='Enter email address', required="")
+                      .form-row
+                        .col-md-6
+                          .form-group
+                            label.small.mb-1(for='inputPassword') Password
+                            input#inputPassword.form-control.py-4(name="password", type='password', placeholder='Enter password', required="")
+                        .col-md-6
+                          .form-group
+                            label.small.mb-1(for='inputConfirmPassword') Confirm Password
+                            input#inputConfirmPassword.form-control.py-4(name="password2", type='password', placeholder='Confirm password', required="")
+                      .form-group.mt-4.mb-0
+                        button.btn.btn-primary.btn-block(type='submit') Create Account
+                  .card-footer.text-center
+                    .small
+                      a(href='login.html') Have an account? Go to login
+      #layoutAuthentication_footer
+        footer.py-4.bg-light.mt-auto
+          .container-fluid
+            .d-flex.align-items-center.justify-content-between.small
+              .text-muted Copyright © Your Website 2020
+              div
+                a(href='#') Privacy Policy
+                |                                 ·
+                a(href='#') Terms & Conditions
+    include comps/scripts.pug

@@ -1,23 +1,25 @@
 const express = require("express");
-const { body, check, validationResult } = require("express-validator");
+const validators = require("./validators");
+
 router = express.Router();
 
 const postsController = require("../controllers/postsController");
 const usersController = require("../controllers/usersController");
 
 router.post(
-  "/users/register2",
+  "/users/register",
   [
-    check("Password2", "Passwords do not match").custom(
-      (value, { req }) => value === req.body.Password
-    ),
+    validators.checkIfPasswordsMatch,
+    validators.checkPassword,
+    validators.checkUsername,
+    validators.checkEmail,
+    validators.checkIfEmailExists,
+    validators.checkIfUsernameExists,
   ],
-  usersController.register2
+  usersController.register
 );
 
-router.get("/users/register2", usersController.displayRegister2);
 router.get("/users/register", usersController.displayRegister);
-router.post("/users/register", usersController.register);
 router.post("/posts/change/", postsController.updatePost);
 router.get("/posts/change/", postsController.updatePostRoute);
 router.get("/posts/search/", postsController.searchPostRoute);
