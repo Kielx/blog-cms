@@ -12,6 +12,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
             a.nav-link(href='/posts/add') Add Post
           li.nav-item
             a.nav-link(href='/posts/delete') Delete Post
+          li.nav-item
+            a.nav-link(href='/users/register') Sign In           
         form.form-inline.my-2.my-lg-0(action='/posts/search/' method='get')
           input.form-control.mr-sm-2(type='search', placeholder='Search post name', aria-label='Search', name='psearch')
           button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
