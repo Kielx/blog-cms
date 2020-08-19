@@ -1,32 +1,29 @@
 const mongoose = require("mongoose");
-const uniqueValidator = require("mongoose-unique-validator");
-
 const bcrypt = require("bcryptjs");
 const SALT_FACTOR = 10;
 
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    lowercase: true,
-    unique: true,
-    required: [true, "can't be blank"],
-    match: [/^[a-zA-Z0-9]+$/, "is invalid"],
     index: true,
   },
-  password: { type: String, required: [true, "can't be blank"] },
+  password: { type: String },
   email: {
     type: String,
-    lowercase: true,
-    unique: true,
-    required: [true, "can't be blank"],
-    match: [/\S+@\S+\.\S+/, "is invalid"],
-    index: true,
   },
   createdAt: { type: Date, default: Date.now },
+  roles: [{ type: String }],
+  isVerified: { type: Boolean, default: false },
+  passwordResetToken: String,
+  passwordResetExpires: Date,
 });
 
 UserSchema.pre("save", function (next) {
   var user = this;
+
+  if (this.roles.length == 0) {
+    this.roles.push("user");
+  }
 
   // only hash the password if it has been modified (or is new)
   if (!user.isModified("password")) return next();
@@ -52,7 +49,5 @@ UserSchema.methods.comparePassword = function (candidatePassword, cb) {
     cb(null, isMatch);
   });
 };
-
-UserSchema.plugin(uniqueValidator, { message: "is already taken." });
 
 module.exports = mongoose.model("User", UserSchema);

@@ -22,7 +22,9 @@ module.exports = {
 
     if (!errors.isEmpty()) {
       errors.array().forEach((err) => {
-        errorMessages.push(err.msg);
+        if (!errorMessages.includes(err.msg)) {
+          errorMessages.push(err.msg);
+        }
       });
       req.flash("errorMessages", errorMessages);
       req.flash("username", req.body.username);
@@ -34,8 +36,15 @@ module.exports = {
       username: req.body.username,
       password: req.body.password,
       email: req.body.email,
-    }).then((newUser) => {
-      res.redirect("/users/login");
-    });
+    })
+      .then((newUser) => {
+        res.redirect("/users/login");
+      })
+      .catch((error) => {
+        console.log(
+          "Error was thrown, it can be ignored since it's handled by validator, but I will log it just in case",
+          error.message
+        );
+      });
   },
 };

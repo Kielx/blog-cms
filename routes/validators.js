@@ -32,7 +32,6 @@ module.exports = {
   )
     .not()
     .isEmpty()
-    .withMessage("Password can't be blank")
     .isLength({ min: 5 })
     .matches(/\d/),
 
@@ -40,8 +39,8 @@ module.exports = {
     .trim()
     .not()
     .isEmpty()
-    .withMessage("Username can't be blank")
-    .escape(),
+    .escape()
+    .withMessage("Username provided is invalid"),
 
   checkEmail: check("email")
     .trim()
@@ -49,5 +48,5 @@ module.exports = {
     .isEmpty()
     .normalizeEmail()
     .escape()
-    .withMessage("Username can't be blank"),
+    .withMessage("E-mail provided is invalid"),
 };
