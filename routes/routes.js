@@ -18,7 +18,6 @@ router.post(
   ],
   usersController.register
 );
-
 router.get("/users/register", usersController.displayRegister);
 router.post("/posts/change/", postsController.updatePost);
 router.get("/posts/change/", postsController.updatePostRoute);
@@ -28,6 +27,9 @@ router.post("/posts/add", postsController.addPost);
 router.get("/posts/delete", postsController.deletePostRoute);
 router.post("/posts/delete", postsController.deletePost);
 router.get("/posts/:postname", postsController.displayPost);
-router.get("/", postsController.displayIndex);
+router.get(
+  ["/", "/index", "/index.htm", "/index.html"],
+  postsController.displayIndex
+);
 
 module.exports = router;

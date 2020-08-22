@@ -43,6 +43,11 @@ app.set("view engine", "pug");
 const router = require("./routes/routes");
 app.use("/", router);
 
+//handle 404 errors
+app.use(function (req, res, next) {
+  res.status(404).render("404", { title: "Sorry, page not found" });
+});
+
 //run server
 app.listen(port, () =>
   console.log(`Server is running on http://localhost:${port}`)
