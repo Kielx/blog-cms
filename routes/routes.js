@@ -18,7 +18,11 @@ router.post(
   ],
   usersController.register
 );
-router.get("/users/register", usersController.displayRegister);
+router.get(["/users/login", "/users/login.html"], usersController.displayLogin);
+router.get(
+  ["/users/register", "/users/register.html"],
+  usersController.displayRegister
+);
 router.post("/posts/change/", postsController.updatePost);
 router.get("/posts/change/", postsController.updatePostRoute);
 router.get("/posts/search/", postsController.searchPostRoute);

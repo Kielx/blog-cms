@@ -38,6 +38,7 @@ app.use("/public", express.static("public"));
 //set views
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+app.set("view engine", "ejs");
 
 //set routes
 const router = require("./routes/routes");
@@ -45,7 +46,7 @@ app.use("/", router);
 
 //handle 404 errors
 app.use(function (req, res, next) {
-  res.status(404).render("404", { title: "Sorry, page not found" });
+  res.status(404).render("404.pug", { title: "Sorry, page not found" });
 });
 
 //run server

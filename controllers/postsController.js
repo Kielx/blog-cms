@@ -20,7 +20,7 @@ module.exports = {
     Post.find({ title: req.query.post })
       .select({})
       .exec(function (err, result) {
-        res.render("change", {
+        res.render("change.pug", {
           post: result,
         });
       });
@@ -30,7 +30,7 @@ module.exports = {
     Post.find({ title: new RegExp(req.query.psearch, "ig") })
       .select({})
       .exec(function (err, result) {
-        res.render("indexNew", {
+        res.render("indexNew.pug", {
           posts: result,
         });
       });
@@ -40,7 +40,7 @@ module.exports = {
     Post.find({})
       .select({})
       .exec(function (err, result) {
-        res.render("add", {
+        res.render("add.pug", {
           posts: result,
         });
       });
@@ -55,7 +55,7 @@ module.exports = {
     Post.find({})
       .select({})
       .exec(function (err, result) {
-        res.render("delete", {
+        res.render("delete.pug", {
           posts: result,
         });
       });
@@ -72,7 +72,7 @@ module.exports = {
     Post.find({})
       .select({})
       .exec(function (err, result) {
-        res.render("post", {
+        res.render("post.pug", {
           posts: result,
           params: req.params,
           markdown: markdown,
@@ -84,7 +84,7 @@ module.exports = {
     Post.find({})
       .select({})
       .exec(function (err, result) {
-        res.render("index", {
+        res.render("index.pug", {
           posts: result,
         });
       });
