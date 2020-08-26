@@ -2,18 +2,17 @@ const User = require("../models/user");
 const { validationResult } = require("express-validator");
 
 module.exports = {
+  displayAdmin: (req, res) => {
+    console.log(req.user);
+    res.send("This is admin page!");
+  },
+
+  login: (req, res) => {
+    res.render("login.ejs");
+  },
+
   displayLogin: (req, res) => {
-    User.find({})
-      .select({})
-      .exec(function (err, result) {
-        res.render("login.ejs", {
-          users: result,
-          ErrorMessages: req.flash("errorMessages"),
-          username: req.flash("username"),
-          email: req.flash("email"),
-          passwords: req.flash("passwords"),
-        });
-      });
+    res.render("login.ejs");
   },
 
   displayRegister: (req, res) => {

@@ -1,11 +1,23 @@
 const express = require("express");
 const validators = require("./validators");
+const passport = require("passport");
 
 router = express.Router();
 
 const postsController = require("../controllers/postsController");
 const usersController = require("../controllers/usersController");
 
+router.get(
+  "/users/admin",
+  require("connect-ensure-login").ensureLoggedIn("/users/login"),
+  usersController.displayAdmin
+);
+
+router.post(
+  ["/users/login", "/users/login.html"],
+  passport.authenticate("local"),
+  usersController.login
+);
 router.post(
   "/users/register",
   [
