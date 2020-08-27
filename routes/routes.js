@@ -21,7 +21,10 @@ router.get(
 
 router.post(
   ["/users/login", "/users/login.html"],
-  passport.authenticate("local"),
+  passport.authenticate("local", {
+    successReturnToOrRedirect: "/",
+    failureRedirect: "/users/login",
+  }),
   usersController.login
 );
 router.post(
