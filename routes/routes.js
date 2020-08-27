@@ -1,11 +1,17 @@
 const express = require("express");
 const validators = require("./validators");
 const passport = require("passport");
+const { ensureLoggedIn } = require("connect-ensure-login");
 
 router = express.Router();
 
 const postsController = require("../controllers/postsController");
 const usersController = require("../controllers/usersController");
+
+router.get("/users/logout", function (req, res) {
+  req.logout();
+  res.redirect("/");
+});
 
 router.get(
   "/users/admin",
@@ -38,7 +44,11 @@ router.get(
 router.post("/posts/change/", postsController.updatePost);
 router.get("/posts/change/", postsController.updatePostRoute);
 router.get("/posts/search/", postsController.searchPostRoute);
-router.get("/posts/add", postsController.addPostRoute);
+router.get(
+  "/posts/add",
+  ensureLoggedIn("/users/login"),
+  postsController.addPostRoute
+);
 router.post("/posts/add", postsController.addPost);
 router.get("/posts/delete", postsController.deletePostRoute);
 router.post("/posts/delete", postsController.deletePost);
