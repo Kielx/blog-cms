@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title 404 Error - SB Admin
+    style
+      include ./css/styles.css
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js', crossorigin='anonymous')
+  body
+    #layoutError
+      #layoutError_content
+        main
+          .container
+            .row.justify-content-center
+              .col-lg-6
+                .text-center.mt-4
+                  img.mb-4.img-error(src='/public/error-404-monochrome.svg')
+                  p.lead This requested URL was not found on this server.
+                  a(href='/index.html')
+                    i.fas.fa-arrow-left.mr-1
+                    |                                         Return to Dashboard
+      #layoutError_footer
+        footer.py-4.bg-light.mt-auto
+          .container-fluid
+            .d-flex.align-items-center.justify-content-between.small
+              .text-muted Copyright © Your Website 2020
+              div
+                a(href='#') Privacy Policy
+                |                                 ·
+                a(href='#') Terms & Conditions
+    script(src='https://code.jquery.com/jquery-3.5.1.min.js', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js', crossorigin='anonymous')
+    script(src='js/scripts.js')
