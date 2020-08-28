@@ -24,8 +24,8 @@ router.post(
   passport.authenticate("local", {
     successReturnToOrRedirect: "/",
     failureRedirect: "/users/login",
-  }),
-  usersController.login
+    failureFlash: true,
+  })
 );
 router.post(
   "/users/register",

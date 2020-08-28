@@ -33,15 +33,19 @@ passport.use(
       }
       if (!user) {
         console.log("incerrect username", user);
-        return done(null, false, { message: "Incorrect username." });
+        return done(null, false, {
+          message: "Username or password is incorrect",
+        });
       }
       user.comparePassword(password, (err, isMatch) => {
         if (err) throw err;
-        if (!isMatch) {
-          return done(null, false, { message: "Incorrect password." });
+        else if (!isMatch) {
+          return done(null, false, {
+            message: "Username or password is incorrect",
+          });
         }
+        return done(null, user, { message: `Hello ${username}` });
       });
-      return done(null, user);
     });
   })
 );

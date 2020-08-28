@@ -7,12 +7,10 @@ module.exports = {
     res.send("This is admin page!");
   },
 
-  login: (req, res) => {
-    res.render("login.ejs");
-  },
-
   displayLogin: (req, res) => {
-    res.render("login.ejs");
+    res.render("login.ejs", {
+      errorMessages: req.flash("error"),
+    });
   },
 
   displayRegister: (req, res) => {
