@@ -1,7 +1,7 @@
 const express = require("express");
 const validators = require("./validators");
 const passport = require("passport");
-const { ensureLoggedIn } = require("connect-ensure-login");
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 router = express.Router();
 
@@ -15,7 +15,7 @@ router.get("/users/logout", function (req, res) {
 
 router.get(
   "/users/admin",
-  require("connect-ensure-login").ensureLoggedIn("/users/login"),
+  ensureLoggedIn("/users/login"),
   usersController.displayAdmin
 );
 
@@ -39,7 +39,11 @@ router.post(
   ],
   usersController.register
 );
-router.get(["/users/login", "/users/login.html"], usersController.displayLogin);
+router.get(
+  ["/users/login", "/users/login.html"],
+  ensureLoggedOut("/"),
+  usersController.displayLogin
+);
 router.get(
   ["/users/register", "/users/register.html"],
   usersController.displayRegister
