@@ -14,11 +14,27 @@ block content
           br
           h5= `Added by ${post.author} on ${post.added.toGMTString()}`
           br
-          form#deletePost(action='/posts/delete', method='post', name='deletePost')
-            button.btn.btn-danger(type='submit', name='title', value=post.title) Delete post
-          br
           form#editPost(action='/posts/change/', method='get', name='changePost')
-            button.btn.btn-warning(type='submit', name='post', value=post.title) Edit post          
+            button.btn.btn-warning(type='submit', name='post', value=post.title) Edit post
+          br
+          // Button trigger modal
+          button.btn.btn-danger(type='button', data-toggle='modal', data-target='#deletePostModal')
+            | Delete post
+          // Modal
+          #deletePostModal.modal.fade(tabindex='-1', aria-labelledby='deletePostModal', aria-hidden='true')
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h5#deletePostModalLabel.modal-title Delete post permanently?
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                .modal-body
+                  =`Are you sure that you want to delete post ${post.title}?`
+                .modal-footer
+                  button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                  form#deletePost(action='/posts/delete', method='post', name='deletePost')
+                    button.btn.btn-danger(type='submit', name='title', value=post.title) Delete post     
+     
 
 
           
