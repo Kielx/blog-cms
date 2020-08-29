@@ -46,6 +46,7 @@ router.get(
 );
 router.get(
   ["/users/register", "/users/register.html"],
+  ensureLoggedOut("/"),
   usersController.displayRegister
 );
 router.post("/posts/change/", postsController.updatePost);
