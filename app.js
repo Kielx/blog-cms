@@ -90,7 +90,7 @@ app.use("/", router);
 
 //handle 404 errors
 app.use(function (req, res, next) {
-  res.status(404).render("404.pug", { title: "Sorry, page not found" });
+  res.status(404).render("404.ejs", { title: "Sorry, page not found" });
 });
 
 //run server

@@ -3,8 +3,7 @@ const { validationResult } = require("express-validator");
 
 module.exports = {
   displayAdmin: (req, res) => {
-    console.log(req.user);
-    res.send("This is admin page!");
+    res.render("admin.ejs");
   },
 
   displayLogin: (req, res) => {

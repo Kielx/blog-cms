@@ -22,7 +22,7 @@ router.get(
 router.post(
   ["/users/login", "/users/login.html"],
   passport.authenticate("local", {
-    successReturnToOrRedirect: "/",
+    successReturnToOrRedirect: "/users/admin",
     failureRedirect: "/users/login",
     failureFlash: true,
   })
