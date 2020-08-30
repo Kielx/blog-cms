@@ -3,10 +3,24 @@ extends layout.pug
 block content
   .page
     h2 Delete post!
-    form#deletePost(action='/posts/delete', method='post', name='deletePost')
+    form#delPost(action='/posts/delete', method='post', name='deletePost')
       each post in posts
         label(for=post.newSlug) #{post.title}: 
         input(type='radio', name='title', value=post.title, id=post.newSlug)
         br
-      button.btn.btn-danger(type='submit') Delete post
-      
+      // Button trigger modal
+      // Modal
+      #deletePostModal.modal.fade(tabindex='-1', aria-labelledby='deletePostModal', aria-hidden='true')
+        .modal-dialog
+          .modal-content
+            .modal-header
+              h5#deletePostModalLabel.modal-title Delete post permanently?
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+            .modal-body
+              =`Are you sure that you want to delete post?`
+            .modal-footer
+              button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                button.btn.btn-danger(form='delPost', type='submit') Delete post
+      button.btn.btn-danger(type='button', data-toggle='modal', data-target='#deletePostModal')
+        | Delete post
