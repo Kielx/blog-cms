@@ -84,7 +84,7 @@ module.exports = {
     Post.find({})
       .select({})
       .exec(function (err, result) {
-        res.render("index.pug", {
+        res.render("index.ejs", {
           posts: result,
         });
       });
