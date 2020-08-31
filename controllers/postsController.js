@@ -72,7 +72,7 @@ module.exports = {
     Post.find({})
       .select({})
       .exec(function (err, result) {
-        res.render("post.pug", {
+        res.render("post.ejs", {
           posts: result,
           params: req.params,
           markdown: markdown,
@@ -86,6 +86,7 @@ module.exports = {
       .exec(function (err, result) {
         res.render("index.ejs", {
           posts: result,
+          markdown: markdown,
         });
       });
   },
