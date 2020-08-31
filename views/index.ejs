@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Kielx Blog</title>
 
     <!-- Bootstrap core CSS -->
     <link
@@ -42,7 +42,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand" href="index.html">Kielx Blog</a>
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -77,15 +77,15 @@
     <!-- Page Header -->
     <header
       class="masthead"
-      style="background-image: url('/public/clean-blog/img/home-bg.jpg')"
+      style="background-image: url('/public/clean-blog/img/home-bg2.jpg')"
     >
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Clean Blog</h1>
-              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+              <h1>Kielx Blog</h1>
+              <span class="subheading">To write about stuff that I love</span>
             </div>
           </div>
         </div>
@@ -105,17 +105,16 @@
                     <%= post.title %>
                   </h2>
                   <h3 class="post-subtitle">
-                    <%= `${post.content.split(' ').slice(0,25).join(' ')}...` %>
+                    <%- post.content.split(' ').slice(0,10).join(' ') + '...' %>
                   </h3>
                 </a>
                 <p class="post-meta">
                   Posted by
                   <a href="/about"><%= post.author %> </a>
-                  on September 24, 2019
+                  on <%= post.added.toUTCString() %>
                 </p>
               </div>
               <hr />
-              <br>
             <% }) %> 
           <% } %>
 
@@ -164,7 +163,7 @@
               </li>
             </ul>
             <p class="copyright text-muted">
-              Copyright &copy; Your Website 2020
+              Copyright &copy; Krzysztof Pantak - Kielx.dev 2020
             </p>
           </div>
         </div>
