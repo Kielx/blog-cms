@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ('./partials/head.ejs') %>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <%- include ('./partials/navbar.ejs') %>
+
+    <!-- Page Header -->
+    <header
+      class="masthead"
+      style="background-image: url('/public/clean-blog/img/home-bg2.jpg')"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Kielx Blog</h1>
+              <span class="subheading">To write about stuff that I love</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <% if (posts.length > 0) { %> 
+            <% posts = posts.sort((a,b) => a.added - b.added).slice(-5).reverse() %>
+            <% posts.forEach(post => { %>
+              <div class="post-preview">
+                <a href=<%=`/posts/${post.newSlug}`%>>
+                  <h2 class="post-title">
+                    <%= post.title %>
+                  </h2>
+                  <h3 class="post-subtitle">
+                    <%- markdown(post.content.split(' ').slice(0,30).join(' ') + '...' )%>
+                  </h3>
+                </a>
+                <p class="post-meta">
+                  Posted by
+                  <a href="/about"><%= post.author %> </a>
+                  on <%= post.added.toUTCString() %>
+                </p>
+              </div>
+              <hr />
+            <% }) %> 
+          <% } %>
+
+          
+          <!-- Pager -->
+          <div class="clearfix">
+            <a class="btn btn-primary float-right" href="#"
+              >Older Posts &rarr;</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Footer -->
+    <%- include ('./partials/footer.ejs') %>
+    <%- include ('./partials/scriptsNeededForTemplate.ejs') %>
+  </body>
+</html>

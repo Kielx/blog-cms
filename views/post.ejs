@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ('./partials/head.ejs') %>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+    <%- include ('./partials/navbar.ejs') %>
+  
+  <% let chosenPost = '' %>
+  <% posts.forEach(post => { %>
+    <% if(post.newSlug === params.postname){ %>
+      <% chosenPost = post %>
+    <% } %>
+  <% }); %>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('/public/clean-blog/img/post-bg2.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1><%= chosenPost.title %></h1>
+            <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+            <span class="meta">Posted by
+              <a href="#"><%= chosenPost.author %></a>
+              on <%= chosenPost.added.toUTCString() %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <%- markdown(chosenPost['content'])%>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <%- include ('./partials/footer.ejs') %>
+  <%- include ('./partials/scriptsNeededForTemplate.ejs') %>
+
+
+</body>
+
+</html>
