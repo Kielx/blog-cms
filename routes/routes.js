@@ -8,6 +8,14 @@ router = express.Router();
 const postsController = require("../controllers/postsController");
 const usersController = require("../controllers/usersController");
 
+router.get("/contact", function (req, res) {
+  res.render("contact.ejs");
+});
+
+router.get("/about", function (req, res) {
+  res.render("about.ejs");
+});
+
 router.get("/users/logout", function (req, res) {
   req.logout();
   res.redirect("/");
