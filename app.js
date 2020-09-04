@@ -32,7 +32,6 @@ passport.use(
         return done(err);
       }
       if (!user) {
-        console.log("incerrect username", user);
         return done(null, false, {
           message: "Username or password is incorrect",
         });
