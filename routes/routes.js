@@ -2,11 +2,17 @@ const express = require("express");
 const validators = require("./validators");
 const passport = require("passport");
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
+const nodemailer = require("nodemailer");
 
 router = express.Router();
 
 const postsController = require("../controllers/postsController");
 const usersController = require("../controllers/usersController");
+const commonController = require("../controllers/commonController");
+
+// POST route from contact form
+
+router.post("/contact", commonController.sendContactMail);
 
 router.get("/contact", function (req, res) {
   res.render("contact.ejs");
