@@ -1,4 +1,5 @@
 require("dotenv").config({ path: "./mongo.env" });
+
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -65,7 +66,11 @@ app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 //set morgan logging
 const morgan = require("morgan");
-app.use(morgan("dev"));
+app.use(
+  morgan(
+    ":date[iso] :remote-addr :method :url :status :res[content-length] - :response-time ms"
+  )
+);
 
 // use mongoose file
 require("./database/mongoose_connection.js");
