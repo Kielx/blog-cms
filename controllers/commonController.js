@@ -1,7 +1,23 @@
 const nodemailer = require("nodemailer");
+const { validationResult } = require("express-validator");
 
 module.exports = {
   sendContactMail: (req, res) => {
+    errorMessages = [];
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      errors.array().forEach((err) => {
+        if (!errorMessages.includes(err.msg)) {
+          errorMessages.push(err.msg);
+        }
+      });
+      req.flash("errorMessages", errorMessages);
+      return res.render("contact.ejs", {
+        errorMessages: req.flash("errorMessages"),
+      });
+    }
+
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -10,7 +26,7 @@ module.exports = {
       },
     });
 
-    var mailOptions = {
+    let mailOptions = {
       from: "youremail@gmail.com",
       to: process.env.GMAIL_USERNAME,
       subject: `${req.body.name} wants to contact with you!`,

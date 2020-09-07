@@ -1,8 +1,8 @@
 const express = require("express");
 const validators = require("./validators");
 const passport = require("passport");
+const { body } = require("express-validator");
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
-const nodemailer = require("nodemailer");
 
 router = express.Router();
 
@@ -12,10 +12,14 @@ const commonController = require("../controllers/commonController");
 
 // POST route from contact form
 
-router.post("/contact", commonController.sendContactMail);
+router.post(
+  "/contact",
+  body("*").isLength({ min: 3 }).trim().escape().withMessage("is invalid"),
+  commonController.sendContactMail
+);
 
 router.get("/contact", function (req, res) {
-  res.render("contact.ejs");
+  res.render("contact.ejs", { messages: req.flash("messages") });
 });
 
 router.get("/about", function (req, res) {

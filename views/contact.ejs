@@ -29,6 +29,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+        <% if ( errorMessages.length > 0 ) { %>
+          <div class="alert alert-danger" role="alert">
+          <%=`The input provided is ${errorMessages[0]}`%>
+          </div>
+        <% } %>
         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
         <form action='/contact' method="POST" name="sentMessage" id="contactForm" novalidate>
           <div class="control-group">
