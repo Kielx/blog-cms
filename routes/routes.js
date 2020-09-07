@@ -19,7 +19,7 @@ router.post(
 );
 
 router.get("/contact", function (req, res) {
-  res.render("contact.ejs", { messages: req.flash("messages") });
+  res.render("contact.ejs", { errorMessages: req.flash("messages") });
 });
 
 router.get("/about", function (req, res) {
